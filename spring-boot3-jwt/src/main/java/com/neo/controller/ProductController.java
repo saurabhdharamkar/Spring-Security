@@ -37,6 +37,13 @@ public class ProductController {
     public String addNewUser(@RequestBody UserInfo userInfo) {
         return service.addUser(userInfo);
     }
+    
+    @PostMapping("/update/{id}")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
+    public String updateUser(@RequestBody UserInfo userInfo,@PathVariable  int id) {
+    	userInfo.setId(id);
+        return service.addUser(userInfo);
+    }
 
     @GetMapping("/all")
    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
