@@ -41,7 +41,6 @@ public class ProductController {
     @GetMapping("/all")
    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<Product> getAllTheProducts() {
-    	System.out.println("Patil Aale");
         return service.getProducts();
     }
 
